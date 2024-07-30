@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
         label="Password"
         value={password}
         onChangeText={setPassword}
-        secureTextEntry={true} // Ensure this is set to true
+        secureTextEntry={true} 
         left={<TextInput.Icon name="lock" />}
       />
     </View>

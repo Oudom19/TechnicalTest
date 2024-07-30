@@ -57,7 +57,7 @@ const UserProfile = ({ route }) => {
             <Text style={styles.boxValue}>{profile.email}</Text>
           </View>
           <View style={styles.genderContainer}>
-            <Text style={styles.genderLabel}>Genderr</Text>
+            <Text style={styles.genderLabel}>Gender</Text>
             <View style={styles.genderOptions}>
               <TouchableOpacity
                 style={[
@@ -72,7 +72,7 @@ const UserProfile = ({ route }) => {
                 ]}>
                   {gender === 'Male' && <View style={styles.radioDot} />}
                 </View>
-                <Text style={styles.genderText}>Malee</Text>
+                <Text style={styles.genderText}>Male</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[
@@ -87,7 +87,7 @@ const UserProfile = ({ route }) => {
                 ]}>
                   {gender === 'Female' && <View style={styles.radioDot} />}
                 </View>
-                <Text style={styles.genderText}>Femalee</Text>
+                <Text style={styles.genderText}>Female</Text>
               </TouchableOpacity>
             </View>
           </View>

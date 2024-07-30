@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { fetchUserProfile } from '../Services/api';
-import styles from '../Styles/styles'; // Adjust import path as needed
+import styles from '../Styles/styles'; 
 
 const UserProfile = ({ route }) => {
   const { token } = route.params;
@@ -17,7 +17,7 @@ const UserProfile = ({ route }) => {
         const data = await fetchUserProfile(token);
         console.log('Profile data received:', data);
         setProfile(data);
-        setGender(data.gender || ''); // Set default gender
+        setGender(data.gender || ''); 
       } catch (error) {
         console.error('Failed to fetch user profile:', error);
         setError('Failed to fetch user profile.');

@@ -32,3 +32,8 @@ To start the development server and run the application, use the following comma
 
 ```sh
 npx expo start
+```
+##App to Scan
+
+To Scan the qr for running the application, you need to have Expo app.
+

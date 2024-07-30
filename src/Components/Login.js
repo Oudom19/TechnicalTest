@@ -10,7 +10,7 @@ const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('+855'); // Default country code
+  const [countryCode, setCountryCode] = useState('+855'); 
   const [error, setError] = useState('');
 
   const handleLogin = async () => {
@@ -19,16 +19,15 @@ const LoginScreen = ({ navigation }) => {
       if (loginMethod === 'email') {
         data = await loginWithEmail(email, password);
       } else {
-        // Ensure countryCode and phone are handled correctly
         if (!countryCode) {
           setError('Please select a country code.');
           return;
         }
 
-        const cleanPhone = phone.replace(/\D/g, ''); // Remove non-digit characters
-        const fullPhoneNumber = `${countryCode}${cleanPhone}`; // Concatenate country code with phone number
+        const cleanPhone = phone.replace(/\D/g, ''); 
+        const fullPhoneNumber = `${countryCode}${cleanPhone}`; 
 
-        data = await loginWithPhone(fullPhoneNumber, password); // Call loginWithPhone with the full phone number
+        data = await loginWithPhone(fullPhoneNumber, password); 
       }
 
       if (data && data.data && data.data.accessToken) {
@@ -47,6 +46,16 @@ const LoginScreen = ({ navigation }) => {
     Alert.alert("Forgot Password", "This feature is not implemented yet.");
   };
 
+  const handleMethodChange = (method) => {
+    setLoginMethod(method);
+    setPassword(''); 
+    if (method === 'email') {
+      setPhone(''); 
+    } else {
+      setEmail(''); 
+    }
+  };
+
   const renderEmailInputs = () => (
     <View style={styles.inputView}>
       <TextInput
@@ -63,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
         label="Password"
         value={password}
         onChangeText={setPassword}
-        secureTextEntry
+        secureTextEntry={true} // Ensure this is set to true
         left={<TextInput.Icon name="lock" />}
       />
     </View>
@@ -85,7 +94,7 @@ const LoginScreen = ({ navigation }) => {
         label="Password"
         value={password}
         onChangeText={setPassword}
-        secureTextEntry
+        secureTextEntry={true}
         left={<TextInput.Icon name="lock" />}
       />
     </View>
@@ -102,7 +111,7 @@ const LoginScreen = ({ navigation }) => {
               styles.methodButton,
               loginMethod === 'email' ? styles.selectedButton : styles.unselectedButton,
             ]}
-            onPress={() => setLoginMethod('email')}
+            onPress={() => handleMethodChange('email')}
           >
             <Text
               style={[
@@ -119,7 +128,7 @@ const LoginScreen = ({ navigation }) => {
               styles.methodButton,
               loginMethod === 'phone' ? styles.selectedButton : styles.unselectedButton,
             ]}
-            onPress={() => setLoginMethod('phone')}
+            onPress={() => handleMethodChange('phone')}
           >
             <Text
               style={[
@@ -127,7 +136,7 @@ const LoginScreen = ({ navigation }) => {
                 loginMethod === 'phone' ? styles.selectedButton : {},
               ]}
             >
-              Phonee
+              Phone
             </Text>
           </Pressable>
         </View>

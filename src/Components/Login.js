@@ -65,7 +65,6 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setEmail}
         keyboardType="email-address"
         autoCapitalize="none"
-        left={<TextInput.Icon name="email" />}
       />
       <TextInput
         style={styles.input}
@@ -73,7 +72,6 @@ const LoginScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
         secureTextEntry={true} 
-        left={<TextInput.Icon name="lock" />}
       />
     </View>
   );
@@ -87,7 +85,6 @@ const LoginScreen = ({ navigation }) => {
         value={phone}
         onChangeText={setPhone}
         keyboardType="phone-pad"
-        left={<TextInput.Icon name="phone" />}
       />
       <TextInput
         style={styles.input}
@@ -95,7 +92,6 @@ const LoginScreen = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
         secureTextEntry={true}
-        left={<TextInput.Icon name="lock" />}
       />
     </View>
   );

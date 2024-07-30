@@ -127,7 +127,7 @@ const LoginScreen = ({ navigation }) => {
                 loginMethod === 'phone' ? styles.selectedButton : {},
               ]}
             >
-              Phone
+              Phonee
             </Text>
           </Pressable>
         </View>
